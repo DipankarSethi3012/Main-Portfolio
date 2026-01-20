@@ -4,16 +4,22 @@ import { useState } from 'react';
 
 const failures = [
     {
-        title: "The Redis Thundering Herd (2022)",
+        title: "The Redis Thundering Herd",
         symptom: "Cache expiration caused simultaneous DB spikes, leading to 503 errors.",
         fix: "Implemented Probabilistic Early Expiration (Jitter) and Semantic Locking.",
         lesson: "Always decouple cache TTLs and use exponential backoff for retries."
     },
     {
-        title: "Memory Leak in Event Loop (2023)",
-        symptom: "Node.js service OOM restarts every 6 hours under load.",
-        fix: "Identified closure retaining large buffer references using heap snapshots.",
-        lesson: "Streams are superior to buffering for large data processing."
+        title: "The N+1 Query Problem",
+        symptom: "List endpoints caused database connection exhaustion due to fetching relations in loops.",
+        fix: "Refactored to use eager loading for relations and BatchLoaders for nested data.",
+        lesson: "Always monitor query counts; N+1 is the silent killer of API performance."
+    },
+    {
+        title: "RBAC Limits vs Granular Permissions",
+        symptom: "Simple roles were insufficient for multi-tenant data isolation requirements.",
+        fix: "Moved from coarse RBAC to granular permissions (ABAC) defining explicit resource ownership.",
+        lesson: "RBAC answers 'Who are you?'; Granular Permissions answer 'Can you touch this specific thing?'"
     }
 ];
 
